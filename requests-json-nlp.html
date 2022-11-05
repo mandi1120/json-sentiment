@@ -15029,7 +15029,7 @@ Result: This song has a Positive connotation with a polarity score of 0.15995011
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[173]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[189]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
@@ -15059,9 +15059,12 @@ Result: This song has a Positive connotation with a polarity score of 0.15995011
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Artist:&quot;</span><span class="p">,</span> <span class="n">json_object</span><span class="p">[</span><span class="s1">&#39;GetLyricResult&#39;</span><span class="p">][</span><span class="s1">&#39;LyricArtist&#39;</span><span class="p">])</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Polarity Score:&quot;</span><span class="p">,</span> <span class="n">polarity</span><span class="p">)</span>    
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sentiment Result:&quot;</span><span class="p">,</span> <span class="n">sentiment</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
     
+<span class="n">sentimentAnalysis</span><span class="p">(</span><span class="s2">&quot;fast_car.json&quot;</span><span class="p">)</span>
 <span class="n">sentimentAnalysis</span><span class="p">(</span><span class="s2">&quot;zombie.json&quot;</span><span class="p">)</span>
-    
+<span class="n">sentimentAnalysis</span><span class="p">(</span><span class="s2">&quot;soul_to_squeeze.json&quot;</span><span class="p">)</span>
+<span class="n">sentimentAnalysis</span><span class="p">(</span><span class="s2">&quot;spiderwebs.json&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15083,10 +15086,26 @@ Result: This song has a Positive connotation with a polarity score of 0.15995011
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Song: Zombie
+<pre>Song: Fast Car
+Artist: Tracy Chapman
+Polarity Score: 0.15995011086474506
+Sentiment Result: Positive
+
+Song: Zombie
 Artist: The Cranberries
 Polarity Score: -0.075
 Sentiment Result: Negative
+
+Song: Soul to Squeeze
+Artist: Red Hot Chili Peppers
+Polarity Score: 0.13059523809523813
+Sentiment Result: Positive
+
+Song: Spiderwebs
+Artist: No Doubt
+Polarity Score: -0.014880952380952384
+Sentiment Result: Negative
+
 </pre>
 </div>
 </div>
@@ -15102,89 +15121,22 @@ Sentiment Result: Negative
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h5 id="Does-the-reported-polarity-match-your-understanding-of-the-song's-lyrics?-Why-or-why-not-do-you-think-that-might-be?--Answer-the-questions-in-either-a-comment-in-the-code-cell-or-a-markdown-cell-under-the-code-cell.">Does the reported polarity match your understanding of the song's lyrics? Why or why not do you think that might be?  Answer the questions in either a comment in the code cell or a markdown cell under the code cell.<a class="anchor-link" href="#Does-the-reported-polarity-match-your-understanding-of-the-song's-lyrics?-Why-or-why-not-do-you-think-that-might-be?--Answer-the-questions-in-either-a-comment-in-the-code-cell-or-a-markdown-cell-under-the-code-cell.">&#182;</a></h5><p>Yes, the polarity score of -0.075 matches my understanding of the song's lyrics.<br>
-The song "Zombie" is about violence, so it makes sense that it would have a negative score and sentiment.</p>
-<h4 id="%23">#<a class="anchor-link" href="#%23">&#182;</a></h4>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[179]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;zombie.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">openfile</span><span class="p">:</span>
-    <span class="n">json_object</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">openfile</span><span class="p">)</span>
-<span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">json_object</span><span class="p">[</span><span class="s1">&#39;GetLyricResult&#39;</span><span class="p">][</span><span class="s1">&#39;Lyric&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Zombie Lyrics:&quot;</span> <span class="p">,</span><span class="n">text</span><span class="p">)</span>
-</pre></div>
+<h5 id="Does-the-reported-polarity-match-your-understanding-of-the-song's-lyrics?-Why-or-why-not-do-you-think-that-might-be?--Answer-the-questions-in-either-a-comment-in-the-code-cell-or-a-markdown-cell-under-the-code-cell.">Does the reported polarity match your understanding of the song's lyrics? Why or why not do you think that might be?  Answer the questions in either a comment in the code cell or a markdown cell under the code cell.<a class="anchor-link" href="#Does-the-reported-polarity-match-your-understanding-of-the-song's-lyrics?-Why-or-why-not-do-you-think-that-might-be?--Answer-the-questions-in-either-a-comment-in-the-code-cell-or-a-markdown-cell-under-the-code-cell.">&#182;</a></h5><p>Song: Fast Car <br/>
+The score of 0.16 matches my understanding of the song's lyrics. <br/>
+Fast Car is about starting over after facing challenges. The lyrics are not extremely positive, but give a slight sense of hope that aligns with the score.</p>
+<p>Song: Zombie<br/>
+The polarity score of -0.075 matches my understanding of the song's lyrics. <br/> 
+The song "Zombie" is about violence, so it makes sense that it would have a negative score and sentiment.<br/></p>
+<p>Song: Soul to Squeeze<br/>
+The polarity score of 0.13 is higher than I would expect for this song.  <br/>
+The lyrics refer to mental illness and the song is written about addiction. I would have expected a negative score, and it is interesting the result was on the positive side.</p>
+<p>Song: Spiderwebs<br/>
+The polarity score of -0.015 matches my understanding of lyrics.<br/>
+The song is about a stalker, and screening phone calls to avoid them. The negative score matches the song's intention.</p>
 
-     </div>
 </div>
 </div>
 </div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Zombie Lyrics: Another head hangs lowly
-Child is slowly taken
-And the violence causes silence
-Who are we mistaken?
-But you see, it&#39;s not me
-It&#39;s not my family
-In your head, in your head
-They are fighting
-With their tanks, and their bombs
-And their bombs, and their guns
-In your head, in your head
-They are crying
-
-In your head, in your head
-Zombie, zombie, zombie-ie-ie
-What&#39;s in your head, in your head?
-Zombie, zombie, zombie-ie-ie-ie-oh
-
-Another mother&#39;s breaking
-Heart is taken over
-When the violence causes silence
-We must be mistaken
-It&#39;s the same old theme
-Since 1916
-In your head, in your head
-They&#39;re still fighting
-With their tanks, and their bombs
-And their bombs, and their guns
-In your head, in your head!
-They are dying
-
-In your head, in your head
-Zombie, zombie, zombie-ie-ie
-What&#39;s in your head, in your head?
-Zombie, zombie, zombie-ie-ie-ie-oh
-Oh, oh, oh, oh, oh, oh, hey-oh, yeah, yeah, yeah
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
