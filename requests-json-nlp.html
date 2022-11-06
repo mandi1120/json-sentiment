@@ -14612,160 +14612,41 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[176]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">xmltodict</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">xmltodict</span>
 
 <span class="c1"># Note: lyrics.ovh no longer works. Using chartLyrics API for this exercise.</span>
 
 <span class="c1"># chartlyrics api result is xml format</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://api.chartlyrics.com/apiv1.asmx/SearchLyricDirect?artist=tracy</span><span class="si">%20c</span><span class="s1">hapman&amp;song=fast</span><span class="si">%c</span><span class="s1">ar&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Chartlyrics api result:&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">-------------------------------------</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://api.chartlyrics.com/apiv1.asmx/SearchLyricDirect?artist=tracy</span><span class="si">%20c</span><span class="s1">hapman&amp;song=fast</span><span class="si">%20c</span><span class="s1">ar&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+<span class="c1"># print(&quot;Chartlyrics api result:&quot;, type(result))</span>
+<span class="c1"># print(result)</span>
       
 <span class="c1"># convert xml format to dict</span>
 <span class="n">o</span> <span class="o">=</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 <span class="n">xmlstr</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>  
 <span class="n">res</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">xmlstr</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Converted type:&quot;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">res</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="c1"># print(&quot;Converted type:&quot;,type(res))</span>
+<span class="c1"># print(res)</span>
 
 <span class="c1"># Write the resulting jsonDict to a file  </span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;lyrics.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
     <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">outfile</span><span class="p">)</span>   
     
-
-<span class="c1">#result = json.loads(requests.get(&#39;https://poetrydb.org/author,title/Edgar Allan Poe;A Dream Within A Dream&#39;).text)</span>
-<span class="c1">#print(type(result), result)</span>
-<span class="c1"># convert list object to dictionary</span>
-<span class="c1">#jsonDict = {}</span>
-<span class="c1">#for i in result: jsonDict.update(i)</span>
-<span class="c1">#print(jsonDict)</span>
-<span class="c1"># Write the resulting jsonDict to a file  </span>
-<span class="c1">#with open(&quot;poem.json&quot;, &quot;w&quot;) as outfile:</span>
-<span class="c1">#    json.dump(jsonDict, outfile)                                 </span>
-                                
 </pre></div>
 
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Chartlyrics api result: &lt;class &#39;str&#39;&gt;
-&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;
-&lt;GetLyricResult xmlns:xsd=&#34;http://www.w3.org/2001/XMLSchema&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; xmlns=&#34;http://api.chartlyrics.com/&#34;&gt;
-  &lt;TrackId&gt;0&lt;/TrackId&gt;
-  &lt;LyricChecksum&gt;d06ed0b5e5eab7810b693a10a292bb46&lt;/LyricChecksum&gt;
-  &lt;LyricId&gt;4963&lt;/LyricId&gt;
-  &lt;LyricSong&gt;Fast Car&lt;/LyricSong&gt;
-  &lt;LyricArtist&gt;Tracy Chapman&lt;/LyricArtist&gt;
-  &lt;LyricUrl&gt;http://www.chartlyrics.com/fIEpEYpIlkCAwXf8GxB8kw/Fast+Car.aspx&lt;/LyricUrl&gt;
-  &lt;LyricCovertArtUrl&gt;http://ec1.images-amazon.com/images/P/B000002H5I.01.MZZZZZZZ.jpg&lt;/LyricCovertArtUrl&gt;
-  &lt;LyricRank&gt;9&lt;/LyricRank&gt;
-  &lt;LyricCorrectUrl&gt;http://www.chartlyrics.com/app/correct.aspx?lid=NAA5ADYAMwA=&lt;/LyricCorrectUrl&gt;
-  &lt;Lyric&gt;You&#39;ve got a fast car
-I wanna a ticket to anywhere
-Maybe we make a deal
-Maybe together we can get somewhere
-Any place is better
-Starting from zero, got nothing to lose
-Maybe we&#39;ll make something
-Me, myself, I&#39;ve got nothing to prove
-
-You&#39;ve got a fast car
-I&#39;ve got a plan to get us out of here
-Been working at the convenience store
-Managed to save just a little bit of money
-Won&#39;t have to drive too far
-Just cross the border and into the city
-You and I can both get jobs
-And finally see what it means to be living
-
-See my old man&#39;s got a problem
-Live with the bottle, that&#39;s the way it is
-He says his body&#39;s too old for working
-His body&#39;s too young, to look like his
-When mama went off and left him
-She wanted more from life than he could give
-I said somebody&#39;s got to take care of him
-So I quit school and that&#39;s what I did
-
-You&#39;ve got a fast car
-Is it fast enough so we can fly away?
-We gotta make a decision
-Leave tonight or live and die this way
-
-Say remember when we were driving, driving in your car
-Speed so fast it felt like I was drunk
-City lights lay out before us
-And your arm felt nice wrapped &#39;round my shoulder
-And I had a feeling that I belonged
-I had a feeling I could be someone, be someone, be someone
-
-You&#39;ve got a a fast car
-We go cruising entertain ourselves
-You still ain&#39;t got a job
-Now I work in the market as a checkout girl
-I know things will get better
-You&#39;ll find work and I&#39;ll get promoted
-We&#39;ll move out of the shelter
-Buy a bigger house and live in the suburbs
-
-Say remember when we were driving, driving in your car
-Speeds so fast it felt like I was drunk
-City lights lay out before us
-And your arm felt nice wrapped &#39;round my shoulder
-And I had a feeling that I belonged
-I had a feeling I could be someone, be someone, be someone
-
-You&#39;ve got a fast car
-I&#39;ve got a job that pays all our bills
-You stay out drinking late at the bar
-See more of your friends than you do of your kids
-I&#39;d always hoped for better
-Thought maybe together you and me&#39;d find it
-I got no plans and I ain&#39;t going nowhere
-So take your fast car and keep on driving
-
-You&#39;ve got a fast car
-Is it fast enough so you can fly away?
-You gotta make a decision
-Leave tonight or live and die this way&lt;/Lyric&gt;
-&lt;/GetLyricResult&gt;
-
--------------------------------------
-
-Converted type: &lt;class &#39;dict&#39;&gt;
-{&#39;GetLyricResult&#39;: {&#39;@xmlns:xsd&#39;: &#39;http://www.w3.org/2001/XMLSchema&#39;, &#39;@xmlns:xsi&#39;: &#39;http://www.w3.org/2001/XMLSchema-instance&#39;, &#39;@xmlns&#39;: &#39;http://api.chartlyrics.com/&#39;, &#39;TrackId&#39;: &#39;0&#39;, &#39;LyricChecksum&#39;: &#39;d06ed0b5e5eab7810b693a10a292bb46&#39;, &#39;LyricId&#39;: &#39;4963&#39;, &#39;LyricSong&#39;: &#39;Fast Car&#39;, &#39;LyricArtist&#39;: &#39;Tracy Chapman&#39;, &#39;LyricUrl&#39;: &#39;http://www.chartlyrics.com/fIEpEYpIlkCAwXf8GxB8kw/Fast+Car.aspx&#39;, &#39;LyricCovertArtUrl&#39;: &#39;http://ec1.images-amazon.com/images/P/B000002H5I.01.MZZZZZZZ.jpg&#39;, &#39;LyricRank&#39;: &#39;9&#39;, &#39;LyricCorrectUrl&#39;: &#39;http://www.chartlyrics.com/app/correct.aspx?lid=NAA5ADYAMwA=&#39;, &#39;Lyric&#39;: &#34;You&#39;ve got a fast car\nI wanna a ticket to anywhere\nMaybe we make a deal\nMaybe together we can get somewhere\nAny place is better\nStarting from zero, got nothing to lose\nMaybe we&#39;ll make something\nMe, myself, I&#39;ve got nothing to prove\n\nYou&#39;ve got a fast car\nI&#39;ve got a plan to get us out of here\nBeen working at the convenience store\nManaged to save just a little bit of money\nWon&#39;t have to drive too far\nJust cross the border and into the city\nYou and I can both get jobs\nAnd finally see what it means to be living\n\nSee my old man&#39;s got a problem\nLive with the bottle, that&#39;s the way it is\nHe says his body&#39;s too old for working\nHis body&#39;s too young, to look like his\nWhen mama went off and left him\nShe wanted more from life than he could give\nI said somebody&#39;s got to take care of him\nSo I quit school and that&#39;s what I did\n\nYou&#39;ve got a fast car\nIs it fast enough so we can fly away?\nWe gotta make a decision\nLeave tonight or live and die this way\n\nSay remember when we were driving, driving in your car\nSpeed so fast it felt like I was drunk\nCity lights lay out before us\nAnd your arm felt nice wrapped &#39;round my shoulder\nAnd I had a feeling that I belonged\nI had a feeling I could be someone, be someone, be someone\n\nYou&#39;ve got a a fast car\nWe go cruising entertain ourselves\nYou still ain&#39;t got a job\nNow I work in the market as a checkout girl\nI know things will get better\nYou&#39;ll find work and I&#39;ll get promoted\nWe&#39;ll move out of the shelter\nBuy a bigger house and live in the suburbs\n\nSay remember when we were driving, driving in your car\nSpeeds so fast it felt like I was drunk\nCity lights lay out before us\nAnd your arm felt nice wrapped &#39;round my shoulder\nAnd I had a feeling that I belonged\nI had a feeling I could be someone, be someone, be someone\n\nYou&#39;ve got a fast car\nI&#39;ve got a job that pays all our bills\nYou stay out drinking late at the bar\nSee more of your friends than you do of your kids\nI&#39;d always hoped for better\nThought maybe together you and me&#39;d find it\nI got no plans and I ain&#39;t going nowhere\nSo take your fast car and keep on driving\n\nYou&#39;ve got a fast car\nIs it fast enough so you can fly away?\nYou gotta make a decision\nLeave tonight or live and die this way&#34;}}
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -14798,7 +14679,7 @@ Converted type: &lt;class &#39;dict&#39;&gt;
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[177]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
@@ -14819,23 +14700,27 @@ Converted type: &lt;class &#39;dict&#39;&gt;
 <span class="n">nlp</span><span class="o">.</span><span class="n">add_pipe</span><span class="p">(</span><span class="s2">&quot;spacytextblob&quot;</span><span class="p">)</span>
 <span class="n">doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 
-<span class="c1"># Print the polarity score of the sentiment analysis.  </span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Polarity score:&quot;</span><span class="p">,</span> <span class="n">doc</span><span class="o">.</span><span class="n">_</span><span class="o">.</span><span class="n">blob</span><span class="o">.</span><span class="n">polarity</span><span class="p">)</span>
 <span class="n">polarity</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">_</span><span class="o">.</span><span class="n">blob</span><span class="o">.</span><span class="n">polarity</span>
 <span class="n">sentiment</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 <span class="k">if</span> <span class="n">polarity</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="n">sentiment</span> <span class="o">=</span> <span class="s2">&quot;Positive&quot;</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">sentiment</span> <span class="o">=</span> <span class="s2">&quot;Negative&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sentiment:&quot;</span><span class="p">,</span> <span class="n">sentiment</span><span class="p">)</span>
 
-<span class="c1"># Given that the range of the polarity score is `[-1.0,1.0]` </span>
-<span class="c1"># which corresponds to how positive or negative the text in question is, </span>
-<span class="c1"># do you think the lyrics have a more positive or negative connotation?  </span>
-<span class="c1"># Answer this question in a comment in your code cell.</span>
-<span class="c1">######## This song has a postive sentiment with a polarity score of 0.15995011086474506</span>
+<span class="c1"># Print the polarity score</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------------------------&quot;</span><span class="p">)</span>    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Polarity score:&quot;</span><span class="p">,</span> <span class="n">polarity</span><span class="p">)</span>    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sentiment:&quot;</span><span class="p">,</span> <span class="n">sentiment</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result: This song has a&quot;</span><span class="p">,</span> <span class="n">sentiment</span><span class="p">,</span> <span class="s2">&quot;connotation with a polarity score of&quot;</span><span class="p">,</span> <span class="n">polarity</span><span class="p">)</span>
+
+<span class="c1">###############################################################</span>
+<span class="c1">##### Question: #####</span>
+<span class="c1"># Given that the range of the polarity score is [-1.0,1.0], which corresponds to how positive or negative the text in question is, </span>
+<span class="c1"># do you think the lyrics have a more positive or negative connotation? Answer this question in a comment in your code cell.</span>
+<span class="c1">##### Answer: #####</span>
+<span class="c1"># The score of 0.16 matches my understanding of the song&#39;s lyrics.  </span>
+<span class="c1"># Fast Car is about starting over after facing challenges. </span>
+<span class="c1"># The lyrics are not extremely positive, but give a slight sense of hope that aligns with the score.</span>
 </pre></div>
 
      </div>
@@ -14925,7 +14810,7 @@ You&#39;ve got a fast car
 Is it fast enough so you can fly away?
 You gotta make a decision
 Leave tonight or live and die this way
-
+---------------------------
 Polarity score: 0.15995011086474506
 Sentiment: Positive
 Result: This song has a Positive connotation with a polarity score of 0.15995011086474506
@@ -14967,7 +14852,7 @@ Result: This song has a Positive connotation with a polarity score of 0.15995011
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[178]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
@@ -14987,11 +14872,11 @@ Result: This song has a Positive connotation with a polarity score of 0.15995011
     <span class="c1"># Write the resulting jsonDict to a file  </span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
         <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">outfile</span><span class="p">)</span>   
-       
-<span class="n">lyric_to_file</span><span class="p">(</span><span class="s2">&quot;tracy chapman&quot;</span><span class="p">,</span> <span class="s2">&quot;fast car&quot;</span><span class="p">,</span> <span class="s2">&quot;fast_car.json&quot;</span><span class="p">)</span>
+
 <span class="n">lyric_to_file</span><span class="p">(</span><span class="s2">&quot;cranberries&quot;</span><span class="p">,</span> <span class="s2">&quot;zombie&quot;</span><span class="p">,</span> <span class="s2">&quot;zombie.json&quot;</span><span class="p">)</span>
 <span class="n">lyric_to_file</span><span class="p">(</span><span class="s2">&quot;red hot chili peppers&quot;</span><span class="p">,</span> <span class="s2">&quot;soul to squeeze&quot;</span><span class="p">,</span> <span class="s2">&quot;soul_to_squeeze.json&quot;</span><span class="p">)</span>
 <span class="n">lyric_to_file</span><span class="p">(</span><span class="s2">&quot;no doubt&quot;</span><span class="p">,</span> <span class="s2">&quot;spiderwebs&quot;</span><span class="p">,</span> <span class="s2">&quot;spiderwebs.json&quot;</span><span class="p">)</span>
+<span class="n">lyric_to_file</span><span class="p">(</span><span class="s2">&quot;soul asylum&quot;</span><span class="p">,</span> <span class="s2">&quot;runaway train&quot;</span><span class="p">,</span> <span class="s2">&quot;runaway_train.json&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15029,14 +14914,14 @@ Result: This song has a Positive connotation with a polarity score of 0.15995011
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[189]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">spacy</span>
 <span class="kn">from</span> <span class="nn">spacytextblob.spacytextblob</span> <span class="kn">import</span> <span class="n">SpacyTextBlob</span>
 
-<span class="k">def</span> <span class="nf">sentimentAnalysis</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>     
+<span class="k">def</span> <span class="nf">sentiment_analysis</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>     
    
     <span class="c1"># Opening &amp; reading JSON file</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">openfile</span><span class="p">:</span>
@@ -15047,24 +14932,24 @@ Result: This song has a Positive connotation with a polarity score of 0.15995011
     <span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">json_object</span><span class="p">[</span><span class="s1">&#39;GetLyricResult&#39;</span><span class="p">][</span><span class="s1">&#39;Lyric&#39;</span><span class="p">])</span>
     <span class="n">nlp</span><span class="o">.</span><span class="n">add_pipe</span><span class="p">(</span><span class="s2">&quot;spacytextblob&quot;</span><span class="p">)</span>
     <span class="n">doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-
-    <span class="c1"># Print the polarity score of the sentiment analysis.  </span>
     <span class="n">polarity</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">_</span><span class="o">.</span><span class="n">blob</span><span class="o">.</span><span class="n">polarity</span>
+    <span class="n">sentiment</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>    
     <span class="k">if</span> <span class="n">polarity</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">sentiment</span> <span class="o">=</span> <span class="s2">&quot;Positive&quot;</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">sentiment</span> <span class="o">=</span> <span class="s2">&quot;Negative&quot;</span>
-    
+        
+    <span class="c1"># Print the polarity score of the sentiment analysis.     </span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Song:&quot;</span><span class="p">,</span> <span class="n">json_object</span><span class="p">[</span><span class="s1">&#39;GetLyricResult&#39;</span><span class="p">][</span><span class="s1">&#39;LyricSong&#39;</span><span class="p">])</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Artist:&quot;</span><span class="p">,</span> <span class="n">json_object</span><span class="p">[</span><span class="s1">&#39;GetLyricResult&#39;</span><span class="p">][</span><span class="s1">&#39;LyricArtist&#39;</span><span class="p">])</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Polarity Score:&quot;</span><span class="p">,</span> <span class="n">polarity</span><span class="p">)</span>    
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sentiment Result:&quot;</span><span class="p">,</span> <span class="n">sentiment</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
     
-<span class="n">sentimentAnalysis</span><span class="p">(</span><span class="s2">&quot;fast_car.json&quot;</span><span class="p">)</span>
-<span class="n">sentimentAnalysis</span><span class="p">(</span><span class="s2">&quot;zombie.json&quot;</span><span class="p">)</span>
-<span class="n">sentimentAnalysis</span><span class="p">(</span><span class="s2">&quot;soul_to_squeeze.json&quot;</span><span class="p">)</span>
-<span class="n">sentimentAnalysis</span><span class="p">(</span><span class="s2">&quot;spiderwebs.json&quot;</span><span class="p">)</span>
+<span class="n">sentiment_analysis</span><span class="p">(</span><span class="s2">&quot;zombie.json&quot;</span><span class="p">)</span>
+<span class="n">sentiment_analysis</span><span class="p">(</span><span class="s2">&quot;soul_to_squeeze.json&quot;</span><span class="p">)</span>
+<span class="n">sentiment_analysis</span><span class="p">(</span><span class="s2">&quot;spiderwebs.json&quot;</span><span class="p">)</span>
+<span class="n">sentiment_analysis</span><span class="p">(</span><span class="s2">&quot;runaway_train.json&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15086,12 +14971,7 @@ Result: This song has a Positive connotation with a polarity score of 0.15995011
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Song: Fast Car
-Artist: Tracy Chapman
-Polarity Score: 0.15995011086474506
-Sentiment Result: Positive
-
-Song: Zombie
+<pre>Song: Zombie
 Artist: The Cranberries
 Polarity Score: -0.075
 Sentiment Result: Negative
@@ -15104,6 +14984,11 @@ Sentiment Result: Positive
 Song: Spiderwebs
 Artist: No Doubt
 Polarity Score: -0.014880952380952384
+Sentiment Result: Negative
+
+Song: Runaway Train
+Artist: Soul Asylum
+Polarity Score: -0.006798245614035087
 Sentiment Result: Negative
 
 </pre>
@@ -15121,10 +15006,7 @@ Sentiment Result: Negative
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h5 id="Does-the-reported-polarity-match-your-understanding-of-the-song's-lyrics?-Why-or-why-not-do-you-think-that-might-be?--Answer-the-questions-in-either-a-comment-in-the-code-cell-or-a-markdown-cell-under-the-code-cell.">Does the reported polarity match your understanding of the song's lyrics? Why or why not do you think that might be?  Answer the questions in either a comment in the code cell or a markdown cell under the code cell.<a class="anchor-link" href="#Does-the-reported-polarity-match-your-understanding-of-the-song's-lyrics?-Why-or-why-not-do-you-think-that-might-be?--Answer-the-questions-in-either-a-comment-in-the-code-cell-or-a-markdown-cell-under-the-code-cell.">&#182;</a></h5><p>Song: Fast Car <br/>
-The score of 0.16 matches my understanding of the song's lyrics. <br/>
-Fast Car is about starting over after facing challenges. The lyrics are not extremely positive, but give a slight sense of hope that aligns with the score.</p>
-<p>Song: Zombie<br/>
+<h5 id="Does-the-reported-polarity-match-your-understanding-of-the-song's-lyrics?-Why-or-why-not-do-you-think-that-might-be?--Answer-the-questions-in-either-a-comment-in-the-code-cell-or-a-markdown-cell-under-the-code-cell.">Does the reported polarity match your understanding of the song's lyrics? Why or why not do you think that might be?  Answer the questions in either a comment in the code cell or a markdown cell under the code cell.<a class="anchor-link" href="#Does-the-reported-polarity-match-your-understanding-of-the-song's-lyrics?-Why-or-why-not-do-you-think-that-might-be?--Answer-the-questions-in-either-a-comment-in-the-code-cell-or-a-markdown-cell-under-the-code-cell.">&#182;</a></h5><p>Song: Zombie<br/>
 The polarity score of -0.075 matches my understanding of the song's lyrics. <br/> 
 The song "Zombie" is about violence, so it makes sense that it would have a negative score and sentiment.<br/></p>
 <p>Song: Soul to Squeeze<br/>
@@ -15133,6 +15015,9 @@ The lyrics refer to mental illness and the song is written about addiction. I wo
 <p>Song: Spiderwebs<br/>
 The polarity score of -0.015 matches my understanding of lyrics.<br/>
 The song is about a stalker, and screening phone calls to avoid them. The negative score matches the song's intention.</p>
+<p>Song: Runaway Train<br/>
+The polarity score of -0.007 matches my understanding of lyrics.<br/>
+The song is about depression. The negative score matches the song's intention.</p>
 
 </div>
 </div>
